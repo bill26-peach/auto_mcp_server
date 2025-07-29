@@ -1,0 +1,63 @@
+{
+  "service_config": {
+    "name": "user_service",
+    "base_url": "https://api.platform-a.com/",
+    "api_key": "your-api-key-here",
+    "version": "v1",
+    "timeout": 30,
+    "max_retries": 3,
+    "cache_ttl": 300
+  },
+  "service_definition": {
+    "name": "user_service",
+    "category": "用户管理",
+    "description": "平台A的用户管理服务",
+    "enabled": true,
+    "endpoints": {
+      "get_user": {
+        "path": "users/{user_id}",
+        "method": "GET",
+        "description": "获取用户信息",
+        "parameters": {
+          "user_id": {
+            "type": "string",
+            "required": true
+          }
+        },
+        "rate_limit": 100
+      },
+      "create_user": {
+        "path": "users",
+        "method": "POST",
+        "description": "创建新用户",
+        "parameters": {
+          "name": {
+            "type": "string",
+            "required": true
+          },
+          "email": {
+            "type": "string",
+            "required": true
+          }
+        },
+        "rate_limit": 50
+      },
+      "list_users": {
+        "path": "users",
+        "method": "GET",
+        "description": "获取用户列表",
+        "parameters": {
+          "page": {
+            "type": "integer",
+            "default": 1
+          },
+          "limit": {
+            "type": "integer",
+            "default": 20
+          }
+        },
+        "rate_limit": 200
+      }
+    }
+  }
+}
