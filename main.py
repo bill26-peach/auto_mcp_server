@@ -491,7 +491,7 @@ def main():
     # 从配置文件注册服务
     try:
         # server.register_service_from_config("user_service_config.json")
-        server.register_service_from_config("config/user_service_demo_config.json")
+        server.register_service_from_config("config/user_service_config.json")
         # 可以注册多个服务
         # server.register_service_from_config("payment_service_config.json")
         # server.register_service_from_config("notification_service_config.json")
