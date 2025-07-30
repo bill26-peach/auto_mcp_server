@@ -1,0 +1,36 @@
+{
+  "service_config": {
+    "name": "user_service",
+    "base_url": "http://192.168.0.103:8080",
+    "api_key": "123465",
+    "version": "v1",
+    "timeout": 30,
+    "max_retries": 3,
+    "cache_ttl": 300
+  },
+  "service_definition": {
+    "name": "user_service",
+    "category": "用户管理",
+    "description": "平台A的用户管理服务",
+    "enabled": true,
+    "endpoints": {
+      "get_user": {
+        "path": "/api/user",
+        "method": "POST",
+        "description": "获取用户信息",
+        "response_format": "text",
+        "parameters": {
+          "username": {
+            "type": "string",
+            "required": true
+          },
+          "password": {
+            "type": "string",
+            "required": true
+          }
+        },
+        "rate_limit": 100
+      }
+    }
+  }
+}

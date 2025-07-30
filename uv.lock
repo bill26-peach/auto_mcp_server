@@ -557,6 +557,7 @@ dependencies = [
     { name = "fastmcp" },
     { name = "makefun" },
     { name = "mcp", extra = ["cli"] },
+    { name = "uvicorn" },
 ]
 
 [package.metadata]
@@ -565,6 +566,7 @@ requires-dist = [
     { name = "fastmcp", specifier = ">=2.10.6" },
     { name = "makefun", specifier = ">=1.16.0" },
     { name = "mcp", extras = ["cli"], specifier = ">=1.12.1" },
+    { name = "uvicorn", specifier = ">=0.35.0" },
 ]
 
 [[package]]
