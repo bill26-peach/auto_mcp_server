@@ -1,61 +1,38 @@
 {
   "service_config": {
     "name": "user_service",
-    "base_url": "https://api.platform-a.com/",
+    "base_url": "http://10.10.23.25/",
     "api_key": "your-api-key-here",
-    "version": "v1",
+    "version": "mpbd",
     "timeout": 30,
     "max_retries": 3,
     "cache_ttl": 300
   },
   "service_definition": {
-    "name": "user_service",
-    "category": "用户管理",
-    "description": "平台A的用户管理服务",
+    "name": "digital_human_services",
+    "category": "数字人",
+    "description": "数字人平台的服务接口",
     "enabled": true,
     "endpoints": {
-      "get_user": {
-        "path": "users/{user_id}",
-        "method": "GET",
-        "description": "获取用户信息",
-        "parameters": {
-          "user_id": {
-            "type": "string",
-            "required": true
-          }
-        },
-        "rate_limit": 100
-      },
-      "create_user": {
-        "path": "users",
+      "get_vector": {
+        "path": "/api/V209889_20250731193350068",
         "method": "POST",
-        "description": "创建新用户",
+        "description": "获取账号言论语义描述相近的知识库语录",
         "parameters": {
-          "name": {
+          "user_ids": {
             "type": "string",
             "required": true
           },
-          "email": {
+          "query_text": {
             "type": "string",
             "required": true
-          }
-        },
-        "rate_limit": 50
-      },
-      "list_users": {
-        "path": "users",
-        "method": "GET",
-        "description": "获取用户列表",
-        "parameters": {
-          "page": {
-            "type": "integer",
-            "default": 1
           },
           "limit": {
             "type": "integer",
-            "default": 20
+            "required": true
           }
         },
+        "content_type": "form-data",
         "rate_limit": 200
       }
     }

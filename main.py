@@ -45,7 +45,7 @@ class APIEndpoint:
     response_format: str = "json"
     requires_auth: bool = True
     rate_limit: Optional[int] = None  # 每分钟请求限制
-
+    content_type: str = "json"  # 新增字段，可选: "json" | "form-data"
 
 @dataclass
 class ServiceDefinition:
@@ -80,7 +80,7 @@ class PlatformAPIClient:
             connector=connector,
             timeout=timeout,
             headers={
-                "Authorization": f"Bearer {self.config.api_key}",
+                # "Authorization": f"Bearer {self.config.api_key}",
                 "User-Agent": "MCP-Platform-Integration/1.0"
             }
         )
@@ -149,9 +149,21 @@ class PlatformAPIClient:
                         result = await self._handle_response(response, endpoint)
                         break
                 elif endpoint.method.upper() == "POST":
-                    async with self.session.post(url, json=params) as response:
-                        result = await self._handle_response(response, endpoint)
-                        break
+                        if endpoint.content_type == "form-data":
+                            form_data = aiohttp.FormData()
+                            for key, value in params.items():
+                                # 如果后续支持文件上传，可在这里判断 value 是不是文件
+                                form_data.add_field(key, str(value))
+                            # mpbd需要appkey
+                            form_data.add_field("appKey", self.config.api_key)
+                            async with self.session.post(url, data=form_data) as response:
+                                result = await self._handle_response(response, endpoint)
+                                break
+                        else:  # 默认 json
+                            async with self.session.post(url, json=params) as response:
+                                result = await self._handle_response(response, endpoint)
+                                break
+
                 else:
                     raise ValueError(f"Unsupported method: {endpoint.method}")
 
@@ -159,7 +171,7 @@ class PlatformAPIClient:
                 self.logger.warning(f"Attempt {attempt + 1} failed: {e}")
                 if attempt == self.config.max_retries - 1:
                     raise
-                await asyncio.sleep(2 ** attempt)  # 指数退避
+                await asyncio.sleep(2 ** attempt)
 
         # 记录速率限制
         if endpoint.rate_limit:

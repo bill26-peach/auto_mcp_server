@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   mcp-server:
-    image: bill73777/mcp-server
+    image: bill73777/mcp-server:1.0
     ports:
       - "8055:8055"
     restart: always
