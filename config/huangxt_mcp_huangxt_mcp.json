@@ -1,0 +1,163 @@
+{
+  "service_config" : {
+    "name" : "huangxt_user_service",
+    "version" : "mpbd",
+    "timeout" : 30,
+    "base_url" : "http://172.23.27.133:18305/",
+    "api_key" : "66f3572f911055cb2f4c578a028c8e59",
+    "max_retries" : 3,
+    "cache_ttl" : 300
+  },
+  "service_definition" : {
+    "name" : "huangxt_mpbd2mcp",
+    "category" : "mpbd2mcp",
+    "description" : "用户(huangxt) 的 mcp 应用(mcp_huangxt) 自动生成的服务定义",
+    "enabled" : true,
+    "endpoints" : {
+      "9947_20250827131954971" : {
+        "path" : "/api/V873935_20250827131954971",
+        "method" : "POST",
+        "description" : "服务名：demo， 说明：获取mcp app列表，     Args: param_1: 这是字符串app名称， pageNo: 第几页,pageSize: 查询量",
+        "parameters" : {
+          "param_1" : {
+            "type" : "string",
+            "required" : true,
+            "defaultValue" : null
+          },
+          "pageNo" : {
+            "type" : "integer",
+            "required" : true,
+            "defaultValue" : 1
+          },
+          "pageSize" : {
+            "type" : "integer",
+            "required" : true,
+            "defaultValue" : 10
+          }
+        },
+        "content_type" : "form-data",
+        "rate_limit" : 1000
+      },
+      "9947_20250827134440315" : {
+        "path" : "/api/V425290_20250827134440315",
+        "method" : "POST",
+        "description" : "服务名：demo2， 说明：获取分享app，     Args: param_1: service_id， pageNo: 第几页,pageSize: 查询量",
+        "parameters" : {
+          "param_1" : {
+            "type" : "string",
+            "required" : false,
+            "defaultValue" : null
+          },
+          "pageNo" : {
+            "type" : "integer",
+            "required" : true,
+            "defaultValue" : 1
+          },
+          "pageSize" : {
+            "type" : "integer",
+            "required" : true,
+            "defaultValue" : 10
+          }
+        },
+        "content_type" : "form-data",
+        "rate_limit" : 1000
+      },
+      "9947_20250827145533917" : {
+        "path" : "/api/V436997_20250827145533917",
+        "method" : "POST",
+        "description" : "服务名：asd， 说明：null，     Args: p1: 参数1， pageNo: pageNo， pageSize: pageSize",
+        "parameters" : {
+          "p1" : {
+            "type" : "string",
+            "required" : false,
+            "defaultValue" : null
+          },
+          "pageNo" : {
+            "type" : "page-int",
+            "required" : false,
+            "defaultValue" : null
+          },
+          "pageSize" : {
+            "type" : "page-int",
+            "required" : false,
+            "defaultValue" : null
+          }
+        },
+        "content_type" : "form-data",
+        "rate_limit" : 1000
+      },
+      "9947_20250827171010514" : {
+        "path" : "/api/V558831_20250827171010514",
+        "method" : "POST",
+        "description" : "服务名：demo3， 说明：你好啊，     Args: param_1: 消息ID， pageNo: 第几页,pageSize: 查询量",
+        "parameters" : {
+          "param_1" : {
+            "type" : "string",
+            "required" : false,
+            "defaultValue" : null
+          },
+          "pageNo" : {
+            "type" : "integer",
+            "required" : true,
+            "defaultValue" : 1
+          },
+          "pageSize" : {
+            "type" : "integer",
+            "required" : true,
+            "defaultValue" : 10
+          }
+        },
+        "content_type" : "form-data",
+        "rate_limit" : 1000
+      },
+      "9947_20250827174419714" : {
+        "path" : "/api/V122397_20250827174419714",
+        "method" : "POST",
+        "description" : "服务名：demo4， 说明：我不知道是什么，     Args: param_1: 这是参数， pageNo: 第几页,pageSize: 查询量",
+        "parameters" : {
+          "param_1" : {
+            "type" : "string",
+            "required" : false,
+            "defaultValue" : null
+          },
+          "pageNo" : {
+            "type" : "integer",
+            "required" : true,
+            "defaultValue" : 1
+          },
+          "pageSize" : {
+            "type" : "integer",
+            "required" : true,
+            "defaultValue" : 10
+          }
+        },
+        "content_type" : "form-data",
+        "rate_limit" : 1000
+      },
+      "9947_20250827180914244" : {
+        "path" : "/api/V483373_20250827180914244",
+        "method" : "POST",
+        "description" : "服务名：demo5， 说明：我不知道说什么，     Args: param_1: 参数过滤1， pageNo: 第几页,pageSize: 查询量",
+        "parameters" : {
+          "param_1" : {
+            "type" : "string",
+            "required" : false,
+            "defaultValue" : null
+          },
+          "pageNo" : {
+            "type" : "integer",
+            "required" : true,
+            "defaultValue" : 1
+          },
+          "pageSize" : {
+            "type" : "integer",
+            "required" : true,
+            "defaultValue" : 10
+          }
+        },
+        "content_type" : "form-data",
+        "rate_limit" : 1000
+      }
+    }
+  }
+}

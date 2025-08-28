@@ -1,8 +1,8 @@
 {
   "service_config": {
     "name": "user_service",
-    "base_url": "http://10.10.23.25/",
-    "api_key": "your-api-key-here",
+    "base_url": "http://10.10.25.21:18305/",
+    "api_key": "3a302fd0aa0a616347fbf15c85144e23",
     "version": "mpbd",
     "timeout": 30,
     "max_retries": 3,
@@ -17,7 +17,7 @@
       "get_vector": {
         "path": "/api/V209889_20250731193350068",
         "method": "POST",
-        "description": "获取账号言论语义描述相近的知识库语录",
+        "description": "获取账号言论语义描述相近的知识库语录, 根据查询文本进行向量搜索，获取文档片段。 Args:  user_ids:  Facebook用户or twitter用户账户ID，多个用英文逗号分隔   query_text: 用户输入提问的文本内容",
         "parameters": {
           "user_ids": {
             "type": "string",
@@ -30,6 +30,52 @@
           "limit": {
             "type": "integer",
             "required": true
+          }
+        },
+        "content_type": "form-data",
+        "rate_limit": 200
+      },
+      "get_vector_full_file_text": {
+        "path": "/api/V209889_20250804142611132",
+        "method": "POST",
+        "description": "获取账号言论语义描述相近的知识库语录, 根据查询文本进行向量搜索返回全文，Args:  user_ids:  Facebook用户or twitter用户账户ID，多个用英文逗号分隔   query_text: 用户输入提问的文本内容",
+        "parameters": {
+          "user_ids": {
+            "type": "string",
+            "required": true
+          },
+          "query_text": {
+            "type": "string",
+            "required": true
+          },
+          "limit": {
+            "type": "integer",
+            "required": true
+          }
+        },
+        "content_type": "form-data",
+        "rate_limit": 200
+      },
+      "get_vector_context_text": {
+        "path": "/api/V209889_20250804142611132",
+        "method": "POST",
+        "description": "获取账号言论语义描述相近的知识库语录,匹配查询文本相似段落，并返回匹配段落及其上下文内容.   Args:  user_ids: Facebook用户or twitter用户 账户ID，多个用英文逗号分隔   query_text: 用户输入提问的文本内容",
+        "parameters": {
+          "user_ids": {
+            "type": "string",
+            "required": true
+          },
+          "query_text": {
+            "type": "string",
+            "required": true
+          },
+          "limit": {
+            "type": "integer",
+            "required": false
+          },
+	  "context_size": {
+            "type": "integer",
+            "required": false
           }
         },
         "content_type": "form-data",

@@ -1,0 +1,38 @@
+{
+  "service_config" : {
+    "name" : "管理员_user_service",
+    "version" : "mpbd",
+    "timeout" : 30,
+    "base_url" : "http://172.23.27.133:18305/",
+    "api_key" : "868877e7d2a1d75ae69cd15e2dd6c5dc",
+    "max_retries" : 3,
+    "cache_ttl" : 300
+  },
+  "service_definition" : {
+    "name" : "管理员_mpbd2mcp",
+    "category" : "mpbd2mcp",
+    "description" : "用户(admin) 的 mcp 应用(mcp) 自动生成的服务定义",
+    "enabled" : true,
+    "endpoints" : {
+      "9946_20230301134617152" : {
+        "path" : "/api/V377975_20230301134617152",
+        "method" : "POST",
+        "description" : "服务名：【速响防疫站-Q】首页-查询疫情防控列表， 说明：null，     Args: pageNo: 第几页,pageSize: 查询量",
+        "parameters" : {
+          "pageNo" : {
+            "type" : "integer",
+            "required" : true,
+            "defaultValue" : 1
+          },
+          "pageSize" : {
+            "type" : "integer",
+            "required" : true,
+            "defaultValue" : 10
+          }
+        },
+        "content_type" : "form-data",
+        "rate_limit" : 1000
+      }
+    }
+  }
+}

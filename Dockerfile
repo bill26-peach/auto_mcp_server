@@ -10,7 +10,8 @@ RUN pip install --no-cache-dir \
     fastmcp>=2.10.6 \
     makefun>=1.16.0 \
     "mcp[cli]>=1.12.1" \
-    uvicorn>=0.35.0
+    uvicorn>=0.35.0 \
+    schedule>=1.2.2
 
 # 拷贝代码到镜像中
 COPY . .

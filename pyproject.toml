@@ -9,5 +9,6 @@ dependencies = [
     "fastmcp>=2.10.6",
     "makefun>=1.16.0",
     "mcp[cli]>=1.12.1",
+    "schedule>=1.2.2",
     "uvicorn>=0.35.0",
 ]

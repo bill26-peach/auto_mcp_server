@@ -5,4 +5,6 @@ services:
     image: bill73777/mcp-server:1.0
     ports:
       - "8055:8055"
+    volumes:
+      - ./config:/app/config
     restart: always
